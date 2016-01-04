@@ -5,7 +5,7 @@ require 'stackexchange/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "stackexchange"
-  spec.version       = Stackexchange::VERSION
+  spec.version       = StackExchange::VERSION
   spec.authors       = ["Marius Rackwitz"]
   spec.email         = ["git@mariusrackwitz.de"]
 
