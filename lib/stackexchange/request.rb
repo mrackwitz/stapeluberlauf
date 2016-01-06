@@ -14,7 +14,7 @@ module StackExchange
     include StackExchange::Authorizable
     
     # @return [Int] the maxium number of items on a page
-    MAX_PAGESIZE = 100.freeze
+    MAX_PAGE_SIZE = 100.freeze
     
     # @return [Net::HTTP] a HTTP client
     attr_accessor :client
@@ -33,7 +33,7 @@ module StackExchange
 
     # @return [Int] any value between 0 and 100, defaults to 30 on API-site,
     #               initialized by default to 100
-    attr_accessor :pagesize
+    attr_accessor :page_size
 
     # Initialize a new instance
     #
@@ -51,7 +51,7 @@ module StackExchange
       @endpoint = endpoint
       @params = params
       @page = 1
-      @pagesize = MAX_PAGESIZE
+      @page_size = MAX_PAGE_SIZE
     end
     
     # Create a new request based on another instance.
