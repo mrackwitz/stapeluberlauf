@@ -235,6 +235,8 @@ module StackExchange
     def merged_params
       params.merge({
         site: site,
+        page: page,
+        pagesize: page_size,
         key: key,
         access_token: access_token,
       })
