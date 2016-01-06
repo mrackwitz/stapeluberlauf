@@ -1,4 +1,5 @@
 require 'json'
+require 'date'
 
 require 'stackexchange/authorizable.rb'
 
@@ -70,24 +71,27 @@ module StackExchange
     
     # Request for filtered results by given parameters.
     #
-    # @param [Hash] params  the parameter
-    #
-    # @option params [Date] fromdate
+    # @param [#to_time] from
     #   Define a lower limit for the range of `creation_date`.
     #
-    # @option params [Date] todate
+    # @param [#to_time] to
     #   Define an upper limit for the range of `creation_date`.
     #
-    # @option params [String] min
+    # @param [String] min
     #   Define a lower limit for the range of the sort criteria.
     #
-    # @option params [String] max
+    # @param [String] max
     #   Define an upper lmit for the range of the sort criteria.
     #
     # @return [Request] returns the receiver to support a floating API
     #
-    def filter(params)
-      @params.merge!(params)
+    def filter(from: nil, to: nil, min: nil, max: nil)
+      @params.merge!({
+        fromdate: from != nil ? from.to_time.to_i : nil,
+        todate:   to   != nil ? to.to_time.to_i   : nil,
+        min:      min,
+        max:      max,
+      })
       self
     end
     
