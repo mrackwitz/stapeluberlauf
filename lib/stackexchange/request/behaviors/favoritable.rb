@@ -9,7 +9,7 @@ module StackExchange
         # @return [Request]
         #
         def favorite
-          sub('favorite').auth_required!
+          request('favorite').auth_required!
         end
 
         # Undoes favoriting the given resouce.
@@ -19,7 +19,7 @@ module StackExchange
         # @return [Request]
         #
         def undo_favorite
-          sub('favorite/undo').auth_required!
+          request('favorite/undo').auth_required!
         end
       end
     end

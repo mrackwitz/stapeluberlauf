@@ -9,7 +9,7 @@ module StackExchange
         # @return [Request]
         #
         def accept
-          sub('accept').auth_required!
+          request('accept').auth_required!
         end
         
         # Undoes an accept vote.
@@ -19,7 +19,7 @@ module StackExchange
         # @return [Request]
         #
         def undo_accept
-          sub('accept/undo').auth_required!
+          request('accept/undo').auth_required!
         end
       end
     end

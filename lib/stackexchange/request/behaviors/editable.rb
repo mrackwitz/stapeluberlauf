@@ -9,7 +9,7 @@ module StackExchange
         # @return [Request]
         #
         def edit
-          sub('edit').auth_required!
+          request('edit').auth_required!
         end
         
         # Deletes the given resource.
@@ -19,7 +19,7 @@ module StackExchange
         # @return [Request]
         #
         def delete
-          sub('delete').auth_required!
+          request('delete').auth_required!
         end
       end
     end

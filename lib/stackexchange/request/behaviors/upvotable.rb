@@ -9,7 +9,7 @@ module StackExchange
         # @return [Request]
         #
         def upvote
-          sub('upvote').auth_required!
+          request('upvote').auth_required!
         end
 
         # Undoes an upvote on the given resource
@@ -19,7 +19,7 @@ module StackExchange
         # @return [Request]
         #
         def undo_upvote
-          sub('upvote/undo').auth_required!
+          request('upvote/undo').auth_required!
         end
       end
     end

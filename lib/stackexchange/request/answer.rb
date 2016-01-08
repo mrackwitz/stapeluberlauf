@@ -13,7 +13,7 @@ module StackExchange
       # @return [Request]
       #
       def questions
-        sub('questions')
+        request('questions')
       end
     end
   end

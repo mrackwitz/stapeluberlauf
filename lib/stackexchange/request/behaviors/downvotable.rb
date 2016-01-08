@@ -9,7 +9,7 @@ module StackExchange
         # @return [Request]
         #
         def downvote
-          sub('downvote').auth_required!
+          request('downvote').auth_required!
         end
 
         # Undoes a downvote on the given resource
@@ -19,7 +19,7 @@ module StackExchange
         # @return [Request]
         #
         def undo_downvote
-          sub('downvote/undo').auth_required!
+          request('downvote/undo').auth_required!
         end
       end
     end

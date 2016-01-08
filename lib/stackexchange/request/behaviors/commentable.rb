@@ -7,7 +7,7 @@ module StackExchange
         # @return [Request]
         #
         def comments
-          sub('comments')
+          request('comments')
         end
       end
     end

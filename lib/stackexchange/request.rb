@@ -185,7 +185,7 @@ module StackExchange
     #
     # @param [Hash<Symbol, String>] params  @see #params
     #
-    def sub(endpoint, params={})
+    def request(endpoint, params={})
       self.class.based_on(self).tap do |instance|
         instance.endpoint += "/#{endpoint}"
         instance.params.merge! params

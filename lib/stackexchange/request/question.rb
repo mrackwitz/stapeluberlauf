@@ -15,7 +15,7 @@ module StackExchange
       # @return [Request]
       #
       def render
-        sub('render').auth_required!
+        request('render').auth_required!
       end
 
       # Creates a new question.
@@ -25,7 +25,7 @@ module StackExchange
       # @return [Request]
       #
       def add
-        sub('add').auth_required!
+        request('add').auth_required!
       end
 
       # Get the answers to the questions
@@ -33,7 +33,7 @@ module StackExchange
       # @return [Request]
       #
       def answers
-        sub('answers')
+        request('answers')
       end
 
       # Creates an answer on the given question. auth required
@@ -41,7 +41,7 @@ module StackExchange
       # @return [Request]
       #
       def add_answer
-        sub('answers/add')
+        request('answers/add')
       end
 
       # Renders a hypothetical answer to a question.
@@ -49,7 +49,7 @@ module StackExchange
       # @return [Request]
       #
       def render_answer
-        sub('answers/render')
+        request('answers/render')
       end
 
       # Returns valid flag options which are also close reasons for the given question.
@@ -59,7 +59,7 @@ module StackExchange
       # @return [Request]
       #
       def close_options
-        sub('close/options').auth_required!
+        request('close/options').auth_required!
       end
 
       # Get the questions that link to the questions.
@@ -67,7 +67,7 @@ module StackExchange
       # @return [Request]
       #
       def linked
-        sub('linked')
+        request('linked')
       end
 
       # Get the questions that are related to the questions.
@@ -75,7 +75,7 @@ module StackExchange
       # @return [Request]
       #
       def related
-        sub('related')
+        request('related')
       end
 
       # Get the timelines of the questions.
@@ -83,7 +83,7 @@ module StackExchange
       # @return [Request]
       #
       def timeline
-        sub('timeline')
+        request('timeline')
       end
 
       # Get all questions on the site with active bounties.
@@ -91,7 +91,7 @@ module StackExchange
       # @return [Request]
       #
       def featured
-        sub('featured')
+        request('featured')
       end
 
       # Get all questions on the site with *no* answers.
@@ -99,7 +99,7 @@ module StackExchange
       # @return [Request]
       #
       def no_answers
-        sub('no-answers')
+        request('no-answers')
       end
 
       # Get all questions the site considers unanswered.
@@ -107,7 +107,7 @@ module StackExchange
       # @return [Request]
       #
       def unanswered
-        sub('unanswered')
+        request('unanswered')
       end
 
       # Get questions the site considers unanswered within a user's favorite or interesting tags.
@@ -117,7 +117,7 @@ module StackExchange
       # @return [Request]
       #
       def unanswered_with_my_tags
-        sub('unanswered/my-tags').auth_required!
+        request('unanswered/my-tags').auth_required!
       end
     end
   end
