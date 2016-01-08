@@ -202,7 +202,7 @@ module StackExchange
     #
     # @param [Hash<Symbol, String>] params  @see #params
     #
-    def sub_collection(request_class, ids, endpoint, params={})
+    def resource_request(request_class, ids, endpoint, params={})
       request_class ||= self.class
       request_class.based_on(self).tap do |instance|
         instance.endpoint += "/#{endpoint}"

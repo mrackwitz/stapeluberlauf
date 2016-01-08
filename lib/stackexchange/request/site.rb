@@ -15,7 +15,7 @@ module StackExchange
       # @return [Request]
       #
       def questions(ids=nil, **params)
-        sub_collection(Question, ids, 'questions', params)
+        resource_request(Question, ids, 'questions', params)
       end
       alias_method :question, :questions
 
@@ -26,7 +26,7 @@ module StackExchange
       # @return [Request]
       #
       def answers(ids=nil, **params)
-        sub_collection(Answer, ids, 'answers', params)
+        resource_request(Answer, ids, 'answers', params)
       end
       alias_method :answer, :answers
 
@@ -37,7 +37,7 @@ module StackExchange
       # @return [Request]
       #
       def comments(ids=nil, **params)
-        sub_collection(Comment, ids, 'comments', params)
+        resource_request(Comment, ids, 'comments', params)
       end
       alias_method :comment, :comments
     end
