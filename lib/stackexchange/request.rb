@@ -134,7 +134,7 @@ module StackExchange
       if is_auth_required? && !authorized?
         raise "Request to #{self.endpoint} is not authorized, but authentication is required!"
       end
-      http_res = client.get(uri)
+      http_res = client.get(absolute_uri)
       json = JSON.parse(http_res.body)
       Response.new.tap do |res|
         json.map do |key, value|
@@ -248,9 +248,16 @@ module StackExchange
     #
     # @return [URI]
     #
-    def uri
-      uri = BASE_URI.dup
-      uri.path += endpoint
+    def absolute_uri
+      URI.join(BASE_URI, relative_uri)
+    end
+
+    # Returns the composed request URI with encoded parameters
+    #
+    # @return [URI]
+    #
+    def relative_uri
+      uri = URI(endpoint)
       uri.query = URI.encode_www_form(merged_params)
       uri
     end
