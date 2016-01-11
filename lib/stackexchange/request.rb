@@ -239,7 +239,7 @@ module StackExchange
         pagesize: page_size != MAX_PAGE_SIZE ? page_size : nil,
         key: key,
         access_token: access_token,
-      })
+      }).reject { |_,v| v.nil? }
     end
     
     private
