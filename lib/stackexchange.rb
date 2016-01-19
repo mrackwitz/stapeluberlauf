@@ -14,8 +14,8 @@ module StackExchange
     attr_accessor :default_client
 
     def default_client
-      @client ||= Faraday.new(url: BASE_URI.dup) do |client|
-        client.adapter Faraday.default_adapter
+      @default_client ||= Faraday.new(url: BASE_URI.dup) do |builder|
+        builder.adapter Faraday.default_adapter
       end
     end
   end
