@@ -77,20 +77,12 @@ module StackExchange
     # @param [#to_time] to
     #   Define an upper limit for the range of `creation_date`.
     #
-    # @param [String] min
-    #   Define a lower limit for the range of the sort criteria.
-    #
-    # @param [String] max
-    #   Define an upper lmit for the range of the sort criteria.
-    #
     # @return [Request] returns the receiver to support a floating API
     #
-    def filter(from: nil, to: nil, min: nil, max: nil)
+    def filter(from: nil, to: nil)
       @params.merge!({
         fromdate: from != nil ? from.to_time.to_i : nil,
         todate:   to   != nil ? to.to_time.to_i   : nil,
-        min:      min,
-        max:      max,
       })
       self
     end
@@ -119,10 +111,20 @@ module StackExchange
     #   - :name:     by name
     #   - :type:     by type
     #
+    # @param [String, nil] min
+    #   Define a lower limit for the range of the sort criteria.
+    #
+    # @param [String, nil] max
+    #   Define an upper limit for the range of the sort criteria.
+    #
     # @return [Request] returns the receiver to support a floating API
     #
-    def sort_by(sort_by)
-      @params[:sort] = sort_by.to_s
+    def sort_by(sort_by, min: nil, max: nil)
+      @params.merge!({
+        sort: sort_by.to_s,
+        min:  min,
+        max:  max,
+      })
       self
     end
 
