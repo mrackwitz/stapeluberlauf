@@ -204,6 +204,8 @@ module StackExchange
     #
     # @param [Hash<Symbol, String>] params  @see #params
     #
+    # @return [Request]
+    #
     def resource_request(request_class, ids, endpoint, params={})
       request_class ||= self.class
       request_class.based_on(self).tap do |instance|
