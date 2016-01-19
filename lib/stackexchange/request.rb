@@ -168,6 +168,24 @@ module StackExchange
       @auth_required
     end
 
+    # Returns the composed request URI with encoded parameters
+    #
+    # @return [URI]
+    #
+    def absolute_uri
+      URI.join(BASE_URI, relative_uri)
+    end
+
+    # Returns the composed request URI with encoded parameters
+    #
+    # @return [URI]
+    #
+    def relative_uri
+      uri = URI(endpoint)
+      uri.query = URI.encode_www_form(merged_params)
+      uri
+    end
+
     protected
     
     # Define that authentication is required for this endpoint. 
@@ -244,26 +262,6 @@ module StackExchange
         key: key,
         access_token: access_token,
       }).reject { |_,v| v.nil? }
-    end
-    
-    private
-    
-    # Returns the composed request URI with encoded parameters
-    #
-    # @return [URI]
-    #
-    def absolute_uri
-      URI.join(BASE_URI, relative_uri)
-    end
-
-    # Returns the composed request URI with encoded parameters
-    #
-    # @return [URI]
-    #
-    def relative_uri
-      uri = URI(endpoint)
-      uri.query = URI.encode_www_form(merged_params)
-      uri
     end
   end
 end
