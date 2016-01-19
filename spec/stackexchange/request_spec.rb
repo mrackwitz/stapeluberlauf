@@ -8,6 +8,15 @@ describe StackExchange::Request do
     @req.page_size = 2
   end
 
+  describe 'with recorded execution', :vcr do
+    describe :execute do
+      it 'should retrieve 2 items' do
+        res = @req.execute
+        expect(res.has_more).to eq true
+      end
+    end
+  end
+
   describe 'with mocked execution' do
     before do
       @res1 = double('1st response')
