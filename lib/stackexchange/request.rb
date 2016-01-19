@@ -69,20 +69,20 @@ module StackExchange
       end
     end
     
-    # Request for filtered results by given parameters.
+    # Request for items filtered by their creation time.
     #
-    # @param [#to_time] from
+    # @param [#to_time] after
     #   Define a lower limit for the range of `creation_date`.
     #
-    # @param [#to_time] to
+    # @param [#to_time] before
     #   Define an upper limit for the range of `creation_date`.
     #
     # @return [Request] returns the receiver to support a floating API
     #
-    def filter(from: nil, to: nil)
+    def created(after: nil, before: nil)
       @params.merge!({
-        fromdate: from != nil ? from.to_time.to_i : nil,
-        todate:   to   != nil ? to.to_time.to_i   : nil,
+        fromdate: from != nil ? before.to_time.to_i : nil,
+        todate:   to   != nil ? after.to_time.to_i   : nil,
       })
       self
     end
