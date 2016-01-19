@@ -128,6 +128,26 @@ module StackExchange
       self
     end
 
+    # Select a filter, which enables certain includes and excludes so that the specific
+    # subset of data that is necessary for the application use are returned at once.
+    #
+    # @param [String] identifier
+    #   This might be either the id of a filter retrieved after creating it
+    #   or one of the pre-defined filters.
+    #   - `default` returns the documented default fields
+    #   - `withbody` returns the default plus the *.body fields
+    #   - `none` is empty
+    #   - `total` includes just .total
+    #
+    # @return [Request] returns the receiver to support a floating API
+    #
+    def use_filter(identifier)
+      @params.merge!({
+        filter: identifier
+      })
+      self
+    end
+
     # Execute the request.
     #
     # @return [Result]
