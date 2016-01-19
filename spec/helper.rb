@@ -1,3 +1,13 @@
+# Setup simplecov
+if RUBY_ENGINE == 'ruby'
+  require 'simplecov'
+
+  SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
+      SimpleCov::Formatter::HTMLFormatter,
+  ])
+  SimpleCov.start
+end
+
 require 'stackexchange'
 require 'rspec'
 
