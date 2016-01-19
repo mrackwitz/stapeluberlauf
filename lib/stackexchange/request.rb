@@ -160,6 +160,14 @@ module StackExchange
       end
     end
     
+    # Checks whether authentication is required.
+    #
+    # @return [Bool]
+    #
+    def is_auth_required?
+      @auth_required
+    end
+
     protected
     
     # Define that authentication is required for this endpoint. 
@@ -169,14 +177,6 @@ module StackExchange
     def auth_required!
       @auth_required = true
       self
-    end
-    
-    # Checks whether authentication is required.
-    #
-    # @return [Bool]
-    #
-    def is_auth_required?
-      @auth_required
     end
 
     # Create a new request based on the current instance.
