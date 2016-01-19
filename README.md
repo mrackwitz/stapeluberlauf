@@ -1,8 +1,27 @@
 # Stackexchange
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/stackexchange`. To experiment with that code, run `bin/console` for an interactive prompt.
+This gem provides a light-weight API wrapper to access the StackExchange API a little more conveniently.
 
-TODO: Delete this and the text above, and describe your gem
+It consists mainly out of simple DSL, which allows to describe requests and abstracts the implementation of basic
+concepts like filters and paging.
+
+It supports authenticated requests and is aware when a request requires authorization, so that it can fail preemptive
+if this is not provided without a round-trip to the API.
+
+It does provide a simple model for the response wrapper. But this covers just a primitive mapping of the JSON attributes
+used for further communication negotiation. These include error indication, paging and rate limiting (quota).
+
+It doesn't provide wrappers for the retrieved model classes yet. These have to be accessed through the envelope as raw
+hashes.
+
+## Usage
+
+This example fetches the first 10 unanswered questions tagged as `ruby`.
+
+```ruby
+stackoverflow = StackExchange.site('stackoverflow').use_filter('withbody')
+questions = stackoverflow.questions(tagged: 'ruby').unanswered.execute
+```
 
 ## Installation
 
@@ -20,17 +39,6 @@ Or install it yourself as:
 
     $ gem install stackexchange
 
-## Usage
+## Disclaimer
 
-TODO: Write usage instructions here
-
-## Development
-
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake false` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
-
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
-
-## Contributing
-
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/stackexchange.
-
+This is not an official gem by StackExchange / StackOverflow.
