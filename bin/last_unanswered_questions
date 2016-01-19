@@ -1,0 +1,30 @@
+#!/usr/bin/env ruby
+
+require 'bundler/setup'
+require 'stackexchange'
+
+if ARGV.count != 1
+  puts "Usage: #{File.basename($0)} tagged"
+  exit 1
+end
+tagged = ARGV.shift
+
+stackoverflow = StackExchange.site('stackoverflow').use_filter('withbody')
+questions = stackoverflow.questions(tagged: tagged).unanswered
+questions.page_size = 10
+
+result = questions.execute
+result.items.each do |question|
+  puts "❓  #{question['title']}"
+  puts "🔗  #{question['link']}"
+  puts question['body']
+  puts "-- @#{question['owner']['display_name']}"
+  comments = stackoverflow.question(question['question_id']).comments.execute.items
+  next if comments.nil?
+  puts '-' * 10
+  comments.each do |comment|
+    puts "  #{comment['body']}"
+    puts "  -- @#{comment['owner']['display_name']}"
+  end
+  puts '*' * 80
+end
