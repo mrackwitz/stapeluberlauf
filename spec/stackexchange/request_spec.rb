@@ -49,5 +49,14 @@ describe StackExchange::Request do
         expect(@req.pages.to_a).to eq [@res1, @res2]
       end
     end
+
+    describe :all_items do
+      it 'should retrieve 4 items' do
+        items = [double('1st item'), double('2nd item'), double('3rd item'), double('4th item')]
+        expect(@res1).to receive(:items).and_return(items[0..1])
+        expect(@res2).to receive(:items).and_return(items[2..3])
+        expect(@req.all_items.to_a).to eq items
+      end
+    end
   end
 end

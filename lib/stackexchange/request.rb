@@ -184,6 +184,14 @@ module StackExchange
         end
       end
     end
+
+    # Returns all items
+    #
+    # @return [Array<Hash>]
+    #
+    def all_items
+      pages.flat_map(&:items)
+    end
     
     # Checks whether authentication is required.
     #
