@@ -2,6 +2,10 @@ stapeluberlauf
 ==============
 ### /ˈʃtaːpl̩ ˈyːbɐˌlaʊ̯f/ _noun_, german word for stack overflow
 
+[![Build Status](http://img.shields.io/travis/mrackwitz/stapeluberlauf/master.svg?style=flat)](https://travis-ci.org/mrackwitz/stapeluberlauf)
+[![Gem Version](http://img.shields.io/gem/v/stapeluberlauf.svg?style=flat)](http://badge.fury.io/rb/stapeluberlauf)
+[![Code Climate](http://img.shields.io/codeclimate/github/mrackwitz/stapeluberlauf.svg?style=flat)](https://codeclimate.com/github/mrackwitz/stapeluberlauf)
+
 This gem provides a light-weight API wrapper to access the StackExchange API a little more conveniently.
 
 It consists mainly out of simple DSL, which allows to describe requests and abstracts the implementation of basic
