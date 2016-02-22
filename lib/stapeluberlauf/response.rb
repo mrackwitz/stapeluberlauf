@@ -1,4 +1,4 @@
-module StackExchange
+module Stapeluberlauf
   class Response
     # @return [Int, nil] is only set when the API detects the request took an unusually long time to run.
     # When it is set an application must wait that number of seconds before calling that method again.

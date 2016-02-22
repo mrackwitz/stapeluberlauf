@@ -1,7 +1,7 @@
 require_relative '../../spec/helper'
 
-describe StackExchange::Request do
-  let(:site) { StackExchange.site('stackoverflow') }
+describe Stapeluberlauf::Request do
+  let(:site) { Stapeluberlauf.site('stackoverflow') }
 
   before do
     @req = site.questions(tagged: 'ruby')
@@ -18,9 +18,9 @@ describe StackExchange::Request do
       it 'should throw when the response is erroneous' do
         req = @req.use_filter('doesnotexist')
         expect { req.execute }.to raise_error do |error|
-          expect(error).to be_a StackExchange::Error
+          expect(error).to be_a Stapeluberlauf::Error
           expect(error.request).to eq req
-          expect(error.response).to be_a StackExchange::Response
+          expect(error.response).to be_a Stapeluberlauf::Response
           expect(error.id).to eq 400
           expect(error.message).to eq 'Invalid filter specified'
         end

@@ -1,4 +1,4 @@
-module StackExchange
+module Stapeluberlauf
   class Request
     class Comment < Request
       include Behavior::Editable

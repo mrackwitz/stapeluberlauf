@@ -1,4 +1,6 @@
-# Stackexchange
+stapeluberlauf
+==============
+### /ˈʃtaːpl̩ ˈyːbɐˌlaʊ̯f/ _noun_, german word for stack overflow
 
 This gem provides a light-weight API wrapper to access the StackExchange API a little more conveniently.
 
@@ -19,7 +21,7 @@ hashes.
 This example fetches the first 10 unanswered questions tagged as `ruby`.
 
 ```ruby
-stackoverflow = StackExchange.site('stackoverflow').use_filter('withbody')
+stackoverflow = Stapeluberlauf.site('stackoverflow').use_filter('withbody')
 questions = stackoverflow.questions(tagged: 'ruby').unanswered.execute
 ```
 
@@ -28,7 +30,7 @@ questions = stackoverflow.questions(tagged: 'ruby').unanswered.execute
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'stackexchange'
+gem 'stapeluberlauf'
 ```
 
 And then execute:
@@ -37,7 +39,7 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install stackexchange
+    $ gem install stapeluberlauf
 
 ## Disclaimer
 

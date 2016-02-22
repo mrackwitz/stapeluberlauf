@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 
 require 'bundler/setup'
-require 'stackexchange'
+require 'stapeluberlauf'
 
 if ARGV.count != 1
   puts "Usage: #{File.basename($0)} tagged"
@@ -9,7 +9,7 @@ if ARGV.count != 1
 end
 tagged = ARGV.shift
 
-stackoverflow = StackExchange.site('stackoverflow').use_filter('withbody')
+stackoverflow = Stapeluberlauf.site('stackoverflow').use_filter('withbody')
 questions = stackoverflow.questions(tagged: tagged).unanswered
 questions.page_size = 10
 

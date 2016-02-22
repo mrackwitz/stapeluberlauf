@@ -1,25 +1,25 @@
-module StackExchange
+module Stapeluberlauf
   class Request
     module Behavior
-      module Editable
-        # Edits the given resource.
+      module Acceptable
+        # Casts an accept vote.
         #
         # @note auth required
         #
         # @return [Request]
         #
-        def edit
-          request('edit').auth_required!
+        def accept
+          request('accept').auth_required!
         end
         
-        # Deletes the given resource.
+        # Undoes an accept vote.
         #
         # @note auth required
         #
         # @return [Request]
         #
-        def delete
-          request('delete').auth_required!
+        def undo_accept
+          request('accept/undo').auth_required!
         end
       end
     end

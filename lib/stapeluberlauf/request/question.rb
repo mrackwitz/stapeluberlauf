@@ -1,4 +1,4 @@
-module StackExchange
+module Stapeluberlauf
   class Request
     class Question < Site
       include Behavior::Commentable

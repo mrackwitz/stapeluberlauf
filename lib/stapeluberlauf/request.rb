@@ -1,17 +1,17 @@
 require 'json'
 require 'date'
 
-require 'stackexchange/authorizable.rb'
+require 'stapeluberlauf/authorizable.rb'
 
-module StackExchange
+module Stapeluberlauf
   class Request
-    autoload :Answer,   'stackexchange/request/answer'
-    autoload :Behavior, 'stackexchange/request/behavior'
-    autoload :Comment,  'stackexchange/request/comment'
-    autoload :Question, 'stackexchange/request/question'
-    autoload :Site,     'stackexchange/request/site'
+    autoload :Answer,   'stapeluberlauf/request/answer'
+    autoload :Behavior, 'stapeluberlauf/request/behavior'
+    autoload :Comment,  'stapeluberlauf/request/comment'
+    autoload :Question, 'stapeluberlauf/request/question'
+    autoload :Site,     'stapeluberlauf/request/site'
 
-    include StackExchange::Authorizable
+    include Stapeluberlauf::Authorizable
     
     # @return [Int] the maxium number of items on a page
     MAX_PAGE_SIZE = 100.freeze
@@ -163,7 +163,7 @@ module StackExchange
         res.send("#{key}=", value)
       end
       unless res.error_name.nil?
-        raise StackExchange::Error.new(self, res)
+        raise Stapeluberlauf::Error.new(self, res)
       end
       res
     end

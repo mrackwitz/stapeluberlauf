@@ -1,4 +1,4 @@
-module StackExchange
+module Stapeluberlauf
   class Request
     class Answer < Request
       include Behavior::Acceptable

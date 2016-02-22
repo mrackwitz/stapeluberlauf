@@ -1,11 +1,11 @@
 require 'uri'
 require 'faraday'
 
-module StackExchange
-  require 'stackexchange/version'
-  autoload :Error,    'stackexchange/error'
-  autoload :Request,  'stackexchange/request'
-  autoload :Response, 'stackexchange/response'
+module Stapeluberlauf
+  require 'stapeluberlauf/version'
+  autoload :Error,    'stapeluberlauf/error'
+  autoload :Request,  'stapeluberlauf/request'
+  autoload :Response, 'stapeluberlauf/response'
 
   BASE_URI = URI.parse('https://api.stackexchange.com/2.2').freeze
 
@@ -28,6 +28,6 @@ module StackExchange
   # @return [Site]
   #
   def self.site(name)
-    StackExchange::Request::Site.new(default_client, name)
+    Stapeluberlauf::Request::Site.new(default_client, name)
   end
 end

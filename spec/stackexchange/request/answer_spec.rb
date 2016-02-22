@@ -1,7 +1,7 @@
 require_relative '../../../spec/helper'
 
-describe StackExchange::Request::Answer do
-  let(:site) { StackExchange.site('stackoverflow') }
+describe Stapeluberlauf::Request::Answer do
+  let(:site) { Stapeluberlauf.site('stackoverflow') }
   let(:base_request) { site.answer('4194189') }
   subject { base_request }
 

@@ -1,7 +1,7 @@
 require_relative '../../../spec/helper'
 
-describe StackExchange::Request::Question do
-  let(:site) { StackExchange.site('stackoverflow') }
+describe Stapeluberlauf::Request::Question do
+  let(:site) { Stapeluberlauf.site('stackoverflow') }
 
   describe 'operating on one or multiple questions' do
     let(:base_request) { site.question('55574') }

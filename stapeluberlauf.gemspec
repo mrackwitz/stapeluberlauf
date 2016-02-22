@@ -1,16 +1,16 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'stackexchange/version'
+require 'stapeluberlauf/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "stackexchange"
-  spec.version       = StackExchange::VERSION
+  spec.name          = "stapeluberlauf"
+  spec.version       = Stapeluberlauf::VERSION
   spec.authors       = ["Marius Rackwitz"]
   spec.email         = ["git@mariusrackwitz.de"]
 
   spec.summary       = %q{API wrapper to access the StackExchange API conveniently.}
-  spec.homepage      = "https://github.com/mrackwitz/StackExchange"
+  spec.homepage      = "https://github.com/mrackwitz/stapeluberlauf"
 
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
   spec.require_paths = ["lib"]

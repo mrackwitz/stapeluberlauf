@@ -1,4 +1,4 @@
-module StackExchange
+module Stapeluberlauf
   module Authorizable
     # @return [String]
     #   The secret key of the OAuth app which allows to authorize to increased throttle

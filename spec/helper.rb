@@ -8,7 +8,7 @@ if RUBY_ENGINE == 'ruby'
   SimpleCov.start
 end
 
-require 'stackexchange'
+require 'stapeluberlauf'
 require 'vcr'
 require 'rspec'
 
@@ -40,7 +40,7 @@ VCR.configure do |c|
 end
 
 # Inject VCR middleware into Faraday
-StackExchange.default_client = Faraday.new(url: StackExchange::BASE_URI.dup) do |builder|
+Stapeluberlauf.default_client = Faraday.new(url: Stapeluberlauf::BASE_URI.dup) do |builder|
   builder.use VCR::Middleware::Faraday
   builder.adapter Faraday.default_adapter
 end

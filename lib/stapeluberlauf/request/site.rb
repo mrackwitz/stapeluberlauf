@@ -1,7 +1,7 @@
-require 'stackexchange/authorizable.rb'
-require 'stackexchange/request.rb'
+require 'stapeluberlauf/authorizable.rb'
+require 'stapeluberlauf/request.rb'
 
-module StackExchange
+module Stapeluberlauf
   class Request
     class Site < Request
       # Gets questions on the site.

@@ -1,4 +1,4 @@
-module StackExchange
+module Stapeluberlauf
   class Request
     module Behavior
       module Flagable

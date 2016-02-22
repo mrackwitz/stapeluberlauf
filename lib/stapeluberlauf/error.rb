@@ -1,4 +1,4 @@
-module StackExchange
+module Stapeluberlauf
   class Error < StandardError
     # @return [Request] the request which resulted in the error
     attr_accessor :request
