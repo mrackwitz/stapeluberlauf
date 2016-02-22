@@ -14,6 +14,17 @@ describe StackExchange::Request do
         res = @req.execute
         expect(res.has_more).to eq true
       end
+
+      it 'should throw when the response is erroneous' do
+        req = @req.use_filter('doesnotexist')
+        expect { req.execute }.to raise_error do |error|
+          expect(error).to be_a StackExchange::Error
+          expect(error.request).to eq req
+          expect(error.response).to be_a StackExchange::Response
+          expect(error.id).to eq 400
+          expect(error.message).to eq 'Invalid filter specified'
+        end
+      end
     end
   end
 

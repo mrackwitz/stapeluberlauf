@@ -158,11 +158,14 @@ module StackExchange
       end
       http_res = client.get(absolute_uri)
       json = JSON.parse(http_res.body)
-      Response.new.tap do |res|
-        json.map do |key, value|
-          res.send("#{key}=", value)
-        end
+      res = Response.new
+      json.map do |key, value|
+        res.send("#{key}=", value)
       end
+      unless res.error_name.nil?
+        raise StackExchange::Error.new(self, res)
+      end
+      res
     end
 
     # Allows to paginate

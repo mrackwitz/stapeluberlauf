@@ -3,6 +3,7 @@ require 'faraday'
 
 module StackExchange
   require 'stackexchange/version'
+  autoload :Error,    'stackexchange/error'
   autoload :Request,  'stackexchange/request'
   autoload :Response, 'stackexchange/response'
 
