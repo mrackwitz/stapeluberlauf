@@ -81,8 +81,8 @@ module Stapeluberlauf
     #
     def created(after: nil, before: nil)
       @params.merge!({
-        fromdate: from != nil ? before.to_time.to_i : nil,
-        todate:   to   != nil ? after.to_time.to_i   : nil,
+        fromdate: after  && after.to_time.to_i,
+        todate:   before && before.to_time.to_i,
       })
       self
     end
