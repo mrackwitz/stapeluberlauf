@@ -64,7 +64,7 @@ module Stapeluberlauf
         base_request.instance_variables.each do |var|
           value = base_request.instance_variable_get(var)
           method_sym = "#{var.to_s[1..-1]}="
-          instance.send(method_sym, value.is_a?(Fixnum) ? value : value.dup)
+          instance.send(method_sym, value.frozen? ? value : value.dup)
         end
       end
     end
